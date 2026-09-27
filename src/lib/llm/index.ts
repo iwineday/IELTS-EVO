@@ -12,7 +12,7 @@
  * (see src/lib/stepfun/tts.ts).
  */
 
-import { reportUsage } from './report-usage'
+import { reportUsage } from '../report-usage'
 
 export interface ChatMessage {
   role: "system" | "user" | "assistant"
