@@ -1,0 +1,61 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+dist/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# testing
+/coverage
+
+# vercel
+.vercel
+
+# evolver — workspace id is local-only and forge-resistant; keep it out of the repo
+.evolver/
+# evolver in-repo memory graph (workspace-scoped runtime state, not source)
+memory/
+
+# generated daily-listening audio cache and local practice data
+data/dictation-audio/
+data/dictation-backups/
+data/dictation-prepare.log
+data/*.db
+data/*.db-*
+data/*.db-shm
+data/*.db-wal
+
+# local tool settings (may contain keys)
+.claude/settings.local.json
+
+# secrets / models
+*.pem
+models/
+.gstack/
