@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { Suspense, useCallback, useEffect, useRef, useState } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { useRecorder } from "@/hooks/useRecorder"
@@ -73,7 +73,7 @@ function filledCount(text: string) {
   return text.split("\n").filter((line) => line.trim()).length
 }
 
-export default function DailyPage() {
+function DailyPage() {
   const searchParams = useSearchParams()
   const dateQuery = searchParams.get("date") ?? undefined
   const [lesson, setLesson] = useState<Lesson | null>(null)
@@ -734,5 +734,13 @@ function Alignment({ alignment, accuracy, hits, total }: CheckResult) {
       </p>
       <p className="mt-3 text-xs text-stone-500">划掉的是原文里没写到的词，黄底是多写出来的词。</p>
     </section>
+  )
+}
+
+export default function DailyPageGate() {
+  return (
+    <Suspense fallback={<main className="mx-auto min-h-screen max-w-5xl px-5 pt-10 text-sm text-stone-500">正在打开今天的精听…</main>}>
+      <DailyPage />
+    </Suspense>
   )
 }
